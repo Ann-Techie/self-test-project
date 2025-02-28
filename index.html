@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Me test</title>
   </head>
@@ -21,13 +22,14 @@
             placeholder="Enter a city.."
             required
             class="search-engine"
+            id="city-searched"
           />
           <input type="submit" value="Search" class="submit-button" />
         </form>
         <main>
           <div class="weather-app">
             <div>
-              <h1>Nairobi</h1>
+              <h1 id="input-city">Nairobi</h1>
               <p class="weather-app-info">
                 Friday 11:32, clear sky
                 <br />
