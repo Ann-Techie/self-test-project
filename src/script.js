@@ -6,7 +6,13 @@ function displaySearchCity(event) {
 }
 
 function displayWeather(response) {
-  console.log(response.data);
+  console.log(response.data.city);
+
+  let citySearch = document.querySelector("#input-city");
+  citySearch.innerHTML = response.data.city;
+  let temperature = Math.round(response.data.temperature);
+  let readings = document.querySelector("#weather-app-temperature");
+  readings.innerHTML = temperature;
 }
 
 let city = "Nairobi";
