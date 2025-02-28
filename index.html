@@ -15,20 +15,34 @@
   <body>
     <div class="content">
       <header>
-        <form>
-          <input type="search" placeholder="Enter a city.." required />
-          <input type="submit" value="Search" />
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            class="search-engine"
+          />
+          <input type="submit" value="Search" class="submit-button" />
         </form>
         <main>
-          <div>
-            <h1>Nairobi</h1>
-            <p>
-              Friday 11:32, clear sky
-              <br />
-              Humidity: 88%, Wind: 3.09km/h
-            </p>
+          <div class="weather-app">
+            <div>
+              <h1>Nairobi</h1>
+              <p class="weather-app-info">
+                Friday 11:32, clear sky
+                <br />
+                
+                  Humidity: <span><strong>88%</strong></span>, Wind:
+                  <span><strong>3.09km/h</strong></span></strong
+                >
+              </p>
+            </div>
+            <div class="weather-app-temperature-readings">
+            <div class="weather-app-icon">🌦️</div>
+            <div class="weather-app-temperature">12</div>
+             <div class="weather-app-unit-value">°C</div>
+             </div>
           </div>
-          <div>🌦️ 12°C</div>
         </main>
       </header>
       <footer>
