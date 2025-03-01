@@ -1,29 +1,33 @@
-//i will start with the search element by addin eventlistener
+//i will start with the search element by adding eventlistener
+//prevent the default behaviour
+//dom manupulation of the h1 value
 //then i will add the api
 //then change the temperature
-function displayWeatherReadings(response) {
-  console.log(response.data);
+
+function displayWeatherData(response) {
+  console.log(response.data.city);
 
   let temperature = document.querySelector("#weather-app-temperature");
   temperature.innerHTML = Math.round(response.data.temperature.current);
+
+  let searchedCity = document.querySelector("#input-city");
+  searchedCity.innerHTML = response.data.city;
 }
 
 function showCity(city) {
-  apiKey = "5765tb49aco10f17ace1b436b0213fc4";
+  let apiKey = "5765tb49aco10f17ace1b436b0213fc4";
   apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=metric`;
 
-  axios.get(apiUrl).then(displayWeatherReadings);
+  axios.get(apiUrl).then(displayWeatherData);
 }
 
-function showWeatherData(event) {
+function showWeatherInfo(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-searched");
-  let inputCityElement = document.querySelector("#input-city");
 
-  inputCityElement.innerHTML = city.value;
+  let city = document.querySelector("#city-searched");
 
   showCity(city.value);
 }
 
-let searchInput = document.querySelector("#search-form-input");
-searchInput.addEventListener("submit", showWeatherData);
+let inputSearchElement = document.querySelector("#search-form-input");
+inputSearchElement.addEventListener("submit", showWeatherInfo);
