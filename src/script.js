@@ -4,30 +4,63 @@
 //then i will add the api
 //then change the temperature
 
-function displayWeatherData(response) {
-  console.log(response.data.city);
+function weatherRealDetails(response) {
+  console.log(response.data);
 
+  let realTemperature = response.data.temperature.current;
   let temperature = document.querySelector("#weather-app-temperature");
-  temperature.innerHTML = Math.round(response.data.temperature.current);
+  temperature.innerHTML = Math.round(realTemperature);
 
-  let searchedCity = document.querySelector("#input-city");
-  searchedCity.innerHTML = response.data.city;
+  let city = document.querySelector("#input-city");
+  city.innerHTML = response.data.city;
+
+  let weatherDescription = document.querySelector("#description");
+  weatherDescription.innerHTML = response.data.condition.description;
+
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+
+  let date = new Date(response.data.time * 1000);
+  let time = document.querySelector("#time");
+  time.innerHTML = formatDate(date);
 }
 
-function showCity(city) {
-  let apiKey = "5765tb49aco10f17ace1b436b0213fc4";
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  return `${day} ${hours}:${minutes}`;
+}
+
+function searchCityInput(city) {
+  apiKey = "5765tb49aco10f17ace1b436b0213fc4";
   apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=metric`;
 
-  axios.get(apiUrl).then(displayWeatherData);
+  axios.get(apiUrl).then(weatherRealDetails);
 }
 
-function showWeatherInfo(event) {
+function displayWeather(event) {
   event.preventDefault();
+  let searchCity = document.querySelector("#city-search");
 
-  let city = document.querySelector("#city-searched");
-
-  showCity(city.value);
+  searchCityInput(searchCity.value);
 }
 
-let inputSearchElement = document.querySelector("#search-form-input");
-inputSearchElement.addEventListener("submit", showWeatherInfo);
+let searchInput = document.querySelector("#search-form");
+searchInput.addEventListener("submit", displayWeather);
+
+searchCityInput("Nairobi");

@@ -74,7 +74,7 @@ main {
   font-weight: 400;
 }
 
-.weather-app-info span {
+.weather-app-info strong {
   color: #162b6a;
   font-weight: 900;
 }

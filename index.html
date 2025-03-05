@@ -16,13 +16,13 @@
   <body>
     <div class="content">
       <header>
-        <form class="search-form" id="search-form-input">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city.."
             required
             class="search-engine"
-            id="city-searched"
+            id="city-search"
           />
           <input type="submit" value="Search" class="submit-button" />
         </form>
@@ -31,12 +31,14 @@
             <div>
               <h1 id="input-city"></h1>
               <p class="weather-app-info">
-                Friday 11:32, clear sky
+                <span id="time">Friday 11:32</span> ,<span
+                  id="description"
+                ></span>
                 <br />
 
-                Humidity: <span><strong>88%</strong></span
-                >, Wind:
-                <span><strong>3.09km/h</strong></span>
+                Humidity:<strong id="humidity"></strong>, Wind:<strong
+                  id="wind-speed"
+                ></strong>
               </p>
             </div>
             <div class="weather-app-temperature-readings">
