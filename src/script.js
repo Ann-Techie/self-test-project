@@ -23,8 +23,13 @@ function weatherRealDetails(response) {
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
 
-  let date = new Date(response.data.time * 1000);
+  let icon = document.querySelector("#icon");
+  icon.innerHTML = `<img
+      src="${response.data.condition.icon_url}"
+      class="weather-app-icon"/>`;
+
   let time = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
   time.innerHTML = formatDate(date);
 }
 
@@ -42,6 +47,10 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+
+  if (minutes > 0) {
+    minutes = `0${minutes}`;
+  }
 
   return `${day} ${hours}:${minutes}`;
 }
