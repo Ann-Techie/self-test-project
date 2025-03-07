@@ -29,7 +29,7 @@ h1 {
   );
   margin: 40px auto;
   width: 600px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 16px;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
 }
@@ -96,6 +96,35 @@ main {
 .weather-app-unit-value {
   margin-top: 15px;
   font-size: 28px;
+}
+
+.weather-forecast {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.weather-forecast-date {
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.8;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.weather-forecast-icon {
+  text-align: center;
+  font-size: 38px;
+}
+.weather-forecast-temp {
+  text-align: center;
+  color: #162b6a;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.weather-forecast-temperature {
+  padding: 0 10px;
 }
 
 footer {
