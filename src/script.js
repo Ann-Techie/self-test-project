@@ -30,6 +30,7 @@ function weatherRealDetails(response) {
 
   let time = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
+  debugger;
   time.innerHTML = formatDate(date);
 }
 
@@ -48,7 +49,7 @@ function formatDate(date) {
   ];
   let day = days[date.getDay()];
 
-  if (minutes > 0) {
+  if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
