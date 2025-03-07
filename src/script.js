@@ -1,8 +1,4 @@
-//i will start with the search element by adding eventlistener
-//prevent the default behaviour
-//dom manupulation of the h1 value
-//then i will add the api
-//then change the temperature
+
 
 function weatherRealDetails(response) {
   console.log(response.data);
