@@ -1,5 +1,3 @@
-
-
 function weatherRealDetails(response) {
   console.log(response.data);
 
@@ -66,7 +64,33 @@ function displayWeather(event) {
   searchCityInput(searchCity.value);
 }
 
+function displayForecast() {
+  let day = ["Mon", "Tue", "Wed", "Thur", "Fri"];
+
+  let forecastHtml = "";
+
+  day.forEach(function (days) {
+    let forecast = document.querySelector("#forecast");
+
+    forecastHtml =
+      forecastHtml +
+      `<div class="weather-forecast-day">
+            <div class="weather-forecast-date">${days}</div>
+            <div class="weather-forecast-icon">🌤️</div>
+            <div class="weather-forecast-temp">
+              <div class="weather-forecast-temperature">
+                <strong>15°</strong>
+              </div>
+              <div class="weather-forecast-temperature">9°</div>
+            </div>
+          </div>`;
+  });
+
+  forecast.innerHTML = forecastHtml;
+}
+
 let searchInput = document.querySelector("#search-form");
 searchInput.addEventListener("submit", displayWeather);
 
 searchCityInput("Nairobi");
+displayForecast();
